@@ -1,0 +1,16 @@
+CC = gcc
+
+# CFLAGS ?=
+CFLAGS += -std=c99
+# CFLAGS += -pedantic-errors
+CFLAGS += -I/usr/include -g
+# CFLAGS += -D_XOPEN_SOURCE=500
+
+LDFLAGS += -lm -lusb -L/usr/lib
+LDLIBS += -usb -lrt
+
+# pkg-config for libusb-1.0
+CFLAGS += $(shell pkg-config --cflags libusb-1.0)
+LDFLAGS += $(shell pkg-config --libs libusb-1.0)
+
+PREFIX ?= /usr/local
